@@ -70,6 +70,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, profile_attributes: %i[description])
+      params.require(:user).permit(:name, profile_attributes: %i[description profilable_id id])
     end
 end
