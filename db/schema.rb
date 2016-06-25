@@ -11,14 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622232423) do
+ActiveRecord::Schema.define(version: 20160625152423) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "profilable_id"
+    t.string   "profilable_type"
   end
+
+  add_index "profiles", ["profilable_type", "profilable_id"], name: "index_profiles_on_profilable_type_and_profilable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
